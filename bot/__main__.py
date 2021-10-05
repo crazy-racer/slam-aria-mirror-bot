@@ -31,7 +31,7 @@ def stats(update, context):
     cpuUsage = psutil.cpu_percent(interval=0.5)
     memory = psutil.virtual_memory().percent
     disk = psutil.disk_usage('/').percent
-    stats = f'<b>╭─────────「  ⭕️ BOT STATISTICS ⭕️ 」 </b>\n' \
+    stats = f'<b>╭───「  ⭕️ BOT STATISTICS ⭕️ 」 </b>\n' \
             f'<b>│</b>\n' \
             f'<b>├  ⏰ Bot Uptime:</b> <code>{currentTime}</code>\n' \
             f'<b>├  🗄 Total Disk Space:</b> <code>{total}</code>\n' \
@@ -55,6 +55,7 @@ def start(update, context):
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
 This bot can mirror all your links to Google Drive!
+👲 Modded By: @yamraaj007
 Type /{BotCommands.HelpCommand} to get a list of available commands
 '''
         sendMarkup(start_string, context.bot, update, reply_markup)
