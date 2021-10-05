@@ -31,22 +31,26 @@ def stats(update, context):
     cpuUsage = psutil.cpu_percent(interval=0.5)
     memory = psutil.virtual_memory().percent
     disk = psutil.disk_usage('/').percent
-    stats = f'<b>Bot Uptime:</b> <code>{currentTime}</code>\n' \
-            f'<b>Total Disk Space:</b> <code>{total}</code>\n' \
-            f'<b>Used:</b> <code>{used}</code> ' \
-            f'<b>Free:</b> <code>{free}</code>\n\n' \
-            f'<b>Upload:</b> <code>{sent}</code>\n' \
-            f'<b>Download:</b> <code>{recv}</code>\n\n' \
-            f'<b>CPU:</b> <code>{cpuUsage}%</code> ' \
-            f'<b>RAM:</b> <code>{memory}%</code> ' \
-            f'<b>DISK:</b> <code>{disk}%</code>'
+    stats = f'<b>╭─────────「  ⭕️ BOT STATISTICS ⭕️ 」 </b>\n' \
+            f'<b>│</b>\n' \
+            f'<b>├  ⏰ Bot Uptime:</b> <code>{currentTime}</code>\n' \
+            f'<b>├  🗄 Total Disk Space:</b> <code>{total}</code>\n' \
+            f'<b>├  🗂 Used:</b> <code>{used}</code> ' \
+            f'<b>├  📂 Free:</b> <code>{free}</code>\n\n' \
+            f'<b>├  📤 Upload:</b> <code>{sent}</code>\n' \
+            f'<b>├  📥 Download:</b> <code>{recv}</code>\n\n' \
+            f'<b>├  🖥️ CPU:</b> <code>{cpuUsage}%</code> ' \
+            f'<b>├  🚀 RAM:</b> <code>{memory}%</code> ' \
+            f'<b>├  🗄 DISK:</b> <code>{disk}%</code>' \
+            f'<b>│</b>\n' \
+            f'<b>╰──「 🚸 @𝐘𝐚𝐦𝐫𝐚𝐚𝐣𝟎𝟎𝟕 🚸 」</b>'
     sendMessage(stats, context.bot, update)
 
 
 def start(update, context):
     buttons = button_build.ButtonMaker()
-    buttons.buildbutton("Repo", "https://github.com/SlamDevs/slam-mirrorbot")
-    buttons.buildbutton("Channel", "https://t.me/SlamMirrorUpdates")
+    buttons.buildbutton("Repo", "https://github.com/crazy-racer/slam-mirrorbot")
+    buttons.buildbutton("Channel", "https://t.me/Mirrorclouds")
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
@@ -154,9 +158,9 @@ help_string_telegraph = f'''<br>
 <b>/{BotCommands.StatsCommand}</b>: Show Stats of the machine the bot is hosted on
 '''
 help = Telegraph(access_token=telegraph_token).create_page(
-        title='Slam Mirrorbot Help',
-        author_name='Slam Mirrorbot',
-        author_url='https://github.com/SlamDevs/slam-mirrorbot',
+        title='Yamraaj007 Mirrorbot Help',
+        author_name='Yamraaj007 Mirrorbot',
+        author_url='https://github.com/crazy-racer/slam-mirrorbot',
         html_content=help_string_telegraph,
     )["path"]
 
