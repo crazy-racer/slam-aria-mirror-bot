@@ -6,7 +6,6 @@ import random
 import string
 import subprocess
 import requests
-import json
 
 import aria2p
 import qbittorrentapi as qba
